@@ -1,0 +1,366 @@
+/* ============================================================
+   carousel.css — all carousel styles
+   ============================================================ */
+
+/* ── Base shell ─────────────────────────────────────────────── */
+.carousel {
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+  /* NO overflow:hidden here — it clips pagination & arrows */
+}
+
+/* ── Nav arrows (shared) ─────────────────────────────────────── */
+.carousel-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+.carousel-nav button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background .25s ease, transform .2s ease, opacity .2s ease;
+  flex-shrink: 0;
+}
+.carousel-nav button svg { display: block; }
+.carousel-nav button svg path { stroke: currentColor; }
+.carousel-nav button.disabled {
+  opacity: .35;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Pagination dots (shared) ────────────────────────────────── */
+.carousel-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 20px;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  opacity: .3;
+  cursor: pointer;
+  transition: width .3s ease, opacity .3s ease;
+  display: block;
+}
+.carousel-dot.active {
+  width: 28px;
+  opacity: 1;
+}
+.swiper-pagination-lock { display: none !important; }
+
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  TYPE: HERO                                              ║
+   ╚══════════════════════════════════════════════════════════╝ */
+
+/* The section wrapper sets the dark background */
+.hero-section {
+  background: var(--dark-bg);
+  padding: 24px 0 48px;
+}
+
+/* The carousel box — overflow hidden only on the swiper part, not the dots */
+.carousel--hero {
+  border-radius: 14px;
+  /* overflow visible so dots below are not clipped */
+}
+
+/* Swiper track itself clips the images */
+.carousel--hero .swiper {
+  overflow: hidden;
+  border-radius: 14px;
+  width: 100%;
+  height: 600px;             /* fixed height so slides stack correctly */
+}
+
+.carousel--hero .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+/* Each slide background */
+.carousel--hero .hero-slide-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.carousel--hero .hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10,20,14,.70) 0%,
+    rgba(10,20,14,.35) 50%,
+    rgba(10, 20, 14, 0) 70%
+  );
+}
+
+.carousel--hero .hero-slide-body {
+  position: relative;
+  z-index: 2;
+  padding: 0 52px 56px;
+  max-width: 640px;
+  color: #fff;
+}
+
+.carousel--hero .hero-slide-eyebrow {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 600;
+  padding: 7px 18px;
+  border-radius: 4px 16px 4px 16px;
+  margin-bottom: 20px;
+}
+
+.carousel--hero .hero-slide-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+
+.carousel--hero .hero-slide-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.carousel--hero .hero-volunteers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel--hero .hero-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.carousel--hero .hero-avatars img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--dark-bg);
+  margin-left: -10px;
+  object-fit: cover;
+}
+
+.carousel--hero .hero-avatars img:first-child { margin-left: 0; }
+
+.carousel--hero .hero-avatars .count {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -10px;
+  border: 2px solid var(--dark-bg);
+  flex-shrink: 0;
+}
+
+.carousel--hero .hero-volunteer-label p {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #c7d2c9;
+  line-height: 1.5;
+}
+
+.carousel--hero .hero-slide-since {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 22px;
+  max-width: 300px;
+}
+
+.carousel--hero .since-icon {
+  color: var(--green);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.carousel--hero .hero-slide-since p  { font-size: .88rem; color: #c7d2c9; line-height: 1.5; }
+.carousel--hero .hero-slide-since strong { color: var(--green); }
+
+/* Hero nav — positioned relative to the .swiper box, not the full carousel */
+.carousel--hero .carousel-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  /* Vertically centered on the image, not the dots */
+  /* We adjust via the swiper height so this aligns to image center */
+  bottom: auto;
+}
+/* Offset top to center on image only (not dots below) */
+.carousel--hero .carousel-nav {
+  top: calc(600px / 2);   /* half of swiper height */
+  transform: translateY(-50%);
+}
+
+.carousel--hero .carousel-nav button {
+  background: rgba(0,0,0,.5);
+  color: #fff;
+}
+.carousel--hero .carousel-nav button:hover:not(.disabled) {
+  background: var(--green);
+  transform: scale(1.1);
+}
+/* .carousel--hero .carousel-nav .carousel-next {
+  background: var(--green);
+} */
+
+/* Pagination dots sit BELOW the swiper box */
+.carousel--hero .carousel-pagination {
+  padding-top: 18px;
+}
+.carousel--hero .carousel-dot { background: #fff; }
+
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  TYPE: CARDS                                             ║
+   ╚══════════════════════════════════════════════════════════╝ */
+.carousel--cards {
+  padding-inline: 80px;
+}
+
+.carousel--cards .swiper {
+  overflow: visible;   /* show side cards peeking in */
+}
+
+.carousel--cards .swiper-slide {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  min-height: 500px;
+}
+
+.carousel--cards .carousel-pagination { padding-top: 32px; }
+.carousel--cards .carousel-dot        { background: var(--green); }
+
+.carousel--cards .carousel-nav button {
+  background: var(--green);
+  color: #fff;
+}
+.carousel--cards .carousel-nav button:hover:not(.disabled) {
+  background: var(--green-dark);
+  transform: scale(1.08);
+}
+
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  TYPE: LOGOS                                             ║
+   ╚══════════════════════════════════════════════════════════╝ */
+.carousel--logos {
+  overflow: hidden;   /* clip the infinite strip */
+  margin-top: 30px;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.carousel--logos .swiper {
+  overflow: visible;
+}
+
+.carousel--logos .swiper-slide {
+  width: auto !important;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.carousel--logos .logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  padding: 0 16px;
+  filter: grayscale(0);
+  opacity: .7;
+  transition: filter .3s ease, opacity .3s ease, transform .3s ease;
+  cursor: pointer;
+}
+.carousel--logos .logo-item:hover {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.1);
+}
+.carousel--logos .logo-item img {
+  height: 72px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+}
+
+/* No controls for logos */
+.carousel--logos .carousel-nav,
+.carousel--logos .carousel-pagination { display: none !important; }
+
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .carousel--hero .swiper          { height: 480px; }
+  .carousel--hero .carousel-nav    { top: calc(480px / 2); }
+  .carousel--hero .hero-slide-body { padding: 0 28px 40px; }
+  .carousel--hero .hero-slide-title{ font-size: 2.2rem; }
+
+  .carousel--cards                 { padding-inline: 0; overflow: hidden; }
+  .carousel--cards .carousel-nav  { display: none; }
+}
+
+@media (max-width: 640px) {
+  .carousel--hero .swiper          { height: 420px; border-radius: 8px; }
+  .carousel--hero .carousel-nav    { top: calc(420px / 2); }
+  .carousel--hero .hero-slide-title{ font-size: 1.75rem; }
+  .carousel--hero .hero-slide-body { padding: 0 20px 32px; }
+
+  .carousel--logos .logo-item img  { height: 30px; }
+}
