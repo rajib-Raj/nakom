@@ -1605,8 +1605,8 @@ input.check-toggle-round-flat:checked ~ .off {
 input.check-toggle-round-flat + label {
   padding: 2px;
   width: 90px;
-  height: 32px;
-  background-color: var(--orange);
+  height: 40px;
+  background-color: #266210;
   border-radius: 60px;
 }
 input.check-toggle-round-flat + label:before,
@@ -1620,7 +1620,7 @@ input.check-toggle-round-flat + label:before {
   left: 2px;
   bottom: 2px;
   right: 2px;
-  background-color: var(--orange);
+  background-color: #90B800;
   border-radius: 60px;
 }
 input.check-toggle-round-flat + label:after {
