@@ -193,3 +193,63 @@ const observer = new IntersectionObserver(
 );
 
 counters.forEach((counter) => observer.observe(counter));
+
+// pagiantion
+document.addEventListener('DOMContentLoaded', () => {
+    const CARDS_PER_PAGE = 9; // change to 12 if you want 4x3 per page
+    const container = document.getElementById('profileContainer');
+    const pagination = document.getElementById('pagination');
+    const cards = Array.from(container.querySelectorAll('.profile-card'));
+    const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+
+    let currentPage = 1;
+
+    function showPage(page) {
+        currentPage = page;
+        const start = (page - 1) * CARDS_PER_PAGE;
+        const end = start + CARDS_PER_PAGE;
+
+        cards.forEach((card, i) => {
+            card.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+
+        renderPaginationControls();
+
+        // optional: scroll back to top of section on page change
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderPaginationControls() {
+        pagination.innerHTML = '';
+
+        // Prev button
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = '‹';
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.addEventListener('click', () => showPage(currentPage - 1));
+        pagination.appendChild(prevBtn);
+
+        // Page number buttons
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            if (i === currentPage) btn.classList.add('active');
+            btn.addEventListener('click', () => showPage(i));
+            pagination.appendChild(btn);
+        }
+
+        // Next button
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = '›';
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.addEventListener('click', () => showPage(currentPage + 1));
+        pagination.appendChild(nextBtn);
+    }
+
+    // Only show pagination if there's more than one page
+    if (totalPages > 1) {
+        showPage(1);
+    } else {
+        pagination.style.display = 'none';
+    }
+});

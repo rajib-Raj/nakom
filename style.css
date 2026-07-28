@@ -1648,28 +1648,30 @@ html[lang="bn"] body {
 }
 
 
+/* about us page */
+
 /* profile card */
 
 .profile-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0 30px;
-    gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 10px;
 }
 
 .profile-card {
-    flex: 1 1 30%;
-    max-width: 400px;
     background: #fff;
-    padding: 20px 60px;
+    padding: 20px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 4px;
     box-shadow: 0 0 2px 0 #ccc;
     transition: .3s;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .profile-card:hover {
@@ -1685,9 +1687,14 @@ html[lang="bn"] body {
 }
 
 .profile-name {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
-    /* margin: 10px 0; */
+    margin: 10px 0 0 0;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .profile-position {
@@ -1711,17 +1718,58 @@ html[lang="bn"] body {
 }
 
 @media screen and (max-width: 1000px) {
+    .profile-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .profile-name {
         font-size: 18px;
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+
     .profile-card {
         padding: 20px 15px;
     }
+}
 
-    .profile-name {
-        font-size: 16px;
-    }
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 30px 0 60px;
+}
+
+.pagination button {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #555;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.pagination button:hover:not(:disabled) {
+    border-color: #748dff;
+    color: #748dff;
+}
+
+.pagination button.active {
+    background: #748dff;
+    border-color: #748dff;
+    color: #fff;
+}
+
+.pagination button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
 }
