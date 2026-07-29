@@ -8,6 +8,19 @@ const translat = {
     "nav.gallery": "Gallery",
     "nav.contact": "Contact",
 
+    // dropdowns
+    "nav.drpo1": "On Going Projects",
+    "nav.drpo2": "Completed Projects",
+
+    "nav.drre1": "Publications",
+    "nav.drre2": "Documents",
+    "nav.drre3": "Newsletter",
+    "nav.drre4": "IEC Materials",
+
+    "nav.drne1": "News",
+    "nav.drne2": "Event",
+    "nav.drne3": "Career",
+
     // hero
     "hero.s1.eye": "Save the environment",
     "hero.s1.title": "Grow trees for Your future",
@@ -34,17 +47,45 @@ const translat = {
     "ab.item.mh": "Mission",
     "ab.item.mp": "NACOM’s mission is to engage in activities to ensure protection of nature while empowering local communities",
     "ab.item.vh": "Vision",
-    "ab.item.vp": "Protection of Nature for Better Human Life"
+    "ab.item.vp": "Protection of Nature for Better Human Life",
+
+    // Thematic Area
+    "why.eyeh": "✤ Thematic Area",
+    "why.da1": "Pollution Control",
+    "why.da2": "Disaster Risk Reduction",
+    "why.da3": "Community Mobilization",
+    "why.da4": "Food Security and Nutrition",
+    "why.da5": "Women and Youth Engagement",
+    "why.da6": "Water, Sanitation and Hygiene",
+    "why.da7": "Capacity Building and Awareness",
+    "why.da8": "Linking Private Sectors",
+    "why.da9": "Climate Change and Resilience",
+    "why.da10": "Natural Resource Management",
+    "why.da11": "Livelihood Support Services",
+    "why.da12": "Environment and Social Impact",
   },
 
   bn: {
     "nav.home": "হেম",
     "nav.about": "আমাদের সম্পর্কে",
-    "nav.project": "প্রজেক্টসমূহ",
+    "nav.project": "প্রকল্পসমূহ",
     "nav.resources": "সম্পদসমূহ",
     "nav.news": "ঘটনাবলি",
     "nav.gallery": "গ্যালারি",
     "nav.contact": "যোগাযোগ",
+
+    // dropdowns
+    "nav.drpo1": "চলমান প্রকল্পসমূহ",
+    "nav.drpo2": "সম্পন্ন প্রকল্পসমূহ",
+
+    "nav.drre1": "প্রকাশনা",
+    "nav.drre2": "নথিপত্র",
+    "nav.drre3": "বার্তাপত্র",
+    "nav.drre4": "IEC Materials",
+
+    "nav.drne1": "সংবাদ",
+    "nav.drne2": "ঘটনা",
+    "nav.drne3": "পেশা",
 
     // hero
 
@@ -78,6 +119,21 @@ const translat = {
     "ab.item.mp": "NACOM-এর লক্ষ্য হলো স্থানীয় জনগোষ্ঠীকে ক্ষমতায়নের পাশাপাশি প্রকৃতি সুরক্ষায় ভূমিকা রাখা।",
     "ab.item.vh": "দর্শন",
     "ab.item.vp": "উন্নত মানবজীবনের জন্য প্রকৃতি সুরক্ষা",
+
+
+    "why.eyeh": "✤ প্রতিপাদ্য বিষয়",
+    "why.da1": "দূষণ নিয়ন্ত্রণ",
+    "why.da2": "দুর্যোগ ঝুঁকি হ্রাস",
+    "why.da3": "সম্প্রদায়কে সংগঠিতকরণ",
+    "why.da4": "খাদ্য নিরাপত্তা ও পুষ্টি",
+    "why.da5": "নারী ও যুবদের অংশগ্রহণ",
+    "why.da6": "পানি, স্যানিটেশন ও স্বাস্থ্যবিধি",
+    "why.da7": "সক্ষমতা বৃদ্ধি ও সচেতনতা",
+    "why.da8": "বেসরকারি খাতের মধ্যে সংযোগ স্থাপন",
+    "why.da9": "জলবায়ু পরিবর্তন ও সহনশীলতা",
+    "why.da10": "প্রাকৃতিক সম্পদ ব্যবস্থাপনা",
+    "why.da11": "জীবিকা সহায়তা পরিষেবা",
+    "why.da12": "পরিবেশ ও সামাজিক প্রভাব",
   },
 };
 
