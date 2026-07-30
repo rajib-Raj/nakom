@@ -1034,7 +1034,7 @@ a {
   grid-template-columns: 1fr 600px;
   gap: 56px;
   align-items: center;
-  height: 600px;
+  /* height: 600px; */
 }
 
 /* ── Info panel ─────────────────────────────────────────────── */
@@ -1108,11 +1108,12 @@ a {
 /* ── Map frame: exactly 600×450 ─────────────────────────────── */
 .map-frame-wrap {
   width: 600px;
+  height: 750px;
   flex-shrink: 0;
 }
 #projectMap {
   width: 600px;
-  height: 450px;
+  height: 700px;
   border-radius: 16px;
   overflow: hidden;
   border: 2px solid #e2ece4;
@@ -1171,62 +1172,127 @@ a {
 }
 
 /* ── Custom popup ────────────────────────────────────────────── */
+/* ── Leaflet popup wrapper resets ─────────────────────────────── */
 .eco-popup-wrap .leaflet-popup-content-wrapper {
   padding: 0;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
   border: none;
-  min-width: 240px;
+  background: transparent;
 }
 .eco-popup-wrap .leaflet-popup-content {
   margin: 0;
   width: auto !important;
 }
 .eco-popup-wrap .leaflet-popup-tip {
-  background: #fff;
+  background: #0f3d3a;
 }
 
-.eco-popup__header {
-  padding: 14px 16px 12px;
+/* ── Card: two-column grid ─────────────────────────────────────── */
+.eco-popup {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  width: 400px;
+  min-height: 200px;
+  box-sizing: border-box;
+}
+
+/* ── Left panel (dark teal) ───────────────────────────────────── */
+.eco-popup__left {
+  background: #0f3d3a;
   color: #fff;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
 }
-.eco-popup__status {
-  font-size: 0.7rem;
+
+.eco-popup__badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0.85;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
 }
-.eco-popup__name {
+
+.eco-popup__title {
+  margin: 0 0 auto;
   font-size: 1rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.35;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.eco-popup__loc {
-  font-size: 0.78rem;
-  opacity: 0.85;
-}
-.eco-popup__body {
+
+/* ── Black info box ────────────────────────────────────────────── */
+.eco-popup__info {
+  background: #0a1210;
+  border-radius: 14px;
   padding: 14px 16px;
-  background: #fff;
-}
-.eco-popup__desc {
-  font-size: 0.85rem;
-  color: #4a5c4f;
-  line-height: 1.55;
-  margin-bottom: 10px;
-}
-.eco-popup__meta {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.eco-popup__pin {
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.eco-popup__date {
   font-size: 0.78rem;
-  color: #8a9b8e;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Right panel (light blue) ─────────────────────────────────── */
+.eco-popup__right {
+  background: #cfe6ef;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.eco-popup__desc-label {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
   font-weight: 500;
+  color: #16302d;
+}
+
+.eco-popup__desc {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #2e433f;
+  flex: 1;
+}
+
+/* ── Read more button ─────────────────────────────────────────── */
+.eco-popup__more {
+  align-self: flex-end;
+  background: #1b2a8a;
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.eco-popup__more:hover {
+  background: #24379e;
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
@@ -1256,6 +1322,45 @@ a {
   }
   .map-stat strong {
     font-size: 1.5rem;
+  }
+
+  /* Popup card: stack columns and shrink on small viewports */
+  .eco-popup {
+    grid-template-columns: 1fr;
+    width: 240px;
+    min-height: unset;
+  }
+  .eco-popup__left,
+  .eco-popup__right {
+    padding: 16px;
+  }
+  .eco-popup__title {
+    font-size: 0.95rem;
+  }
+  .eco-popup__badge {
+    font-size: 0.62rem;
+    padding: 5px 12px;
+    margin-bottom: 12px;
+  }
+  .eco-popup__info {
+    padding: 12px 14px;
+    gap: 6px;
+  }
+  .eco-popup__loc {
+    font-size: 0.8rem;
+  }
+  .eco-popup__date {
+    font-size: 0.72rem;
+  }
+  .eco-popup__desc-label {
+    font-size: 1.1rem;
+  }
+  .eco-popup__desc {
+    font-size: 0.8rem;
+  }
+  .eco-popup__more {
+    padding: 8px 16px;
+    font-size: 0.75rem;
   }
 }
 

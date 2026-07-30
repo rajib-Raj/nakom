@@ -106,8 +106,8 @@ function createMarker(status) {
         <div class="eco-pin__dot"></div>
         <div class="eco-pin__pulse"></div>
       </div>`,
-    iconSize:   [32, 32],
-    iconAnchor: [16, 16],   // center of dot
+    iconSize:   [20, 20],
+    iconAnchor: [10, 10],   // center of dot
     popupAnchor:[0, -18],   // popup appears above dot
   });
 }
@@ -115,20 +115,27 @@ function createMarker(status) {
 // ── Build popup HTML ─────────────────────────────────────────────
 function buildPopup(p) {
   const statusLabel = { active: 'Active', completed: 'Completed', hq: 'HQ' }[p.status] || p.status;
-  const color = STATUS_COLOR[p.status];
+  const finishLabel = p.status === 'active' ? 'Ongoing' : 'Completed';
+
   return `
     <div class="eco-popup">
-      <div class="eco-popup__header" style="background:${color}">
-        <span class="eco-popup__status">${statusLabel}</span>
-        <strong class="eco-popup__name">${p.name}</strong>
-        <small class="eco-popup__loc">📍 ${p.location}</small>
+      <div class="eco-popup__left">
+        <span class="eco-popup__badge">${statusLabel}</span>
+        <h3 class="eco-popup__title">${p.name}</h3>
+       
+          <div class="eco-popup__loc">
+            <svg class="eco-popup__pin" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 7 12 8 12s8-6.75 8-12c0-4.42-3.58-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>
+            <span>${p.location}</span>
+          </div>
+          <div class="eco-popup__date">Start date: ${p.year}</div>
+          <div class="eco-popup__date">Finish date: ${finishLabel}</div>
+        
       </div>
-      <div class="eco-popup__body">
+      <div class="eco-popup__right">
         <p class="eco-popup__desc">${p.description}</p>
-        <div class="eco-popup__meta">
-          <span>🌍 ${p.impact}</span>
-          <span>📅 Since ${p.year}</span>
-        </div>
+        <button class="eco-popup__more" type="button">Read more</button>
       </div>
     </div>`;
 }
@@ -151,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
     subdomains: 'abcd',
-    maxZoom: 19,
+    maxZoom: 11,
   }).addTo(map);
 
   // Drop markers
@@ -165,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Open on hover, keep open on click
     marker.on('mouseover', function () { this.openPopup(); });
-    marker.on('mouseout',  function () { this.closePopup(); });
+    // marker.on('mouseout',  function () { this.closePopup(); });
     marker.addTo(map);
   });
 
