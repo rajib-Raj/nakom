@@ -302,11 +302,11 @@ a {
 /* dropdown */
 
 /* Make the dropdown trigger look identical to a normal nav link */
-.main-nav li.drop {
+.main-nav li#drop {
   position: relative;
 }
 
-.main-nav li.drop > button {
+.main-nav li#drop > button {
   background: none;
   border: none;
   font-family: inherit;
@@ -322,7 +322,7 @@ a {
 }
 
 /* reuse the same underline-on-hover effect as .main-nav a */
-.main-nav li.drop > button::after {
+.main-nav li#drop > button::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -334,19 +334,19 @@ a {
   transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.main-nav li.drop:hover > button {
+.main-nav li#drop:hover > button {
   color: #fff;
 }
-.main-nav li.drop:hover > button::after {
+.main-nav li#drop:hover > button::after {
   width: 100%;
 }
 
 /* rotate the caret when open */
-.main-nav li.drop .caret {
+.main-nav li#drop .caret {
   transition: transform 0.25s ease;
 }
-.main-nav li.drop:hover .caret,
-.main-nav li.drop.open .caret {
+.main-nav li#drop:hover .caret,
+.main-nav li#drop.open .caret {
   transform: rotate(180deg);
 }
 
@@ -368,8 +368,8 @@ a {
   z-index: 10;
 }
 
-.main-nav li.drop:hover .dropdown-content,
-.main-nav li.drop.open .dropdown-content {
+.main-nav li#drop:hover .dropdown-content,
+.main-nav li#drop.open .dropdown-content {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -736,6 +736,28 @@ a {
 
 .partners-section {
   padding: 100px 0;
+}
+
+/* new card */
+
+.causes-section .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 32px;
+}
+ 
+/* 4 cols x 2 rows on desktop -> collapses down on smaller screens */
+@media (max-width: 1080px) {
+  .causes-section .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+ 
+@media (max-width: 560px) {
+  .causes-section .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Slider shell */
@@ -1276,6 +1298,11 @@ a {
   line-height: 1.55;
   color: #2e433f;
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ── Read more button ─────────────────────────────────────────── */

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./dist/leaflet.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="carousel.css" />
+    <link rel="stylesheet" href="projects.css">
   </head>
   <body>
     <!-- ============ HEADER ============ -->
@@ -31,19 +32,25 @@
         </a>
         <nav class="main-nav" id="mainNav">
           <ul>
-            <li class="active"><a href="/"><span data-longs="nav.home"></span></a></li>
-            <li><a href="/about.html"><span data-longs="nav.about"></span></a></li>
-            <li class="drop">
+            <li class="active">
+              <a href="/"><span data-longs="nav.home"></span></a>
+            </li>
+            <li>
+              <a href="/about.html"><span data-longs="nav.about"></span></a>
+            </li>
+            <li id="drop">
               <button type="button">
-                <span data-longs="nav.project"></span>
-                <span class="caret">▾</span>
+                <a href="/projects.html">
+                  <span data-longs="nav.project"></span>
+                  <span class="caret">▾</span>
+                </a>
               </button>
               <div class="dropdown-content">
                 <a href="#"><span data-longs="nav.drpo1"></span></a>
                 <a href="#"><span data-longs="nav.drpo2"></span></a>
               </div>
             </li>
-            <li class="drop">
+            <li id="drop">
               <button>
                 <span data-longs="nav.resources"></span>
                 <span class="caret">▾</span>
@@ -55,7 +62,7 @@
                 <a href="#"><span data-longs="nav.drre4"></span></a>
               </div>
             </li>
-            <li class="drop">
+            <li id="drop">
               <button type="button">
                 <span data-longs="nav.news"></span>
                 <span class="caret">▾</span>
@@ -67,9 +74,14 @@
               </div>
             </li>
             <li>
-              <a href="#"><span data-longs="nav.gallery"></span><span class="caret">▾</span></a>
+              <a href="#"
+                ><span data-longs="nav.gallery"></span
+                ><span class="caret">▾</span></a
+              >
             </li>
-            <li><a href="/contact.html"><span data-longs="nav.contact"></span></a></li>
+            <li>
+              <a href="/contact.html"><span data-longs="nav.contact"></span></a>
+            </li>
           </ul>
         </nav>
         <div class="header-actions">
@@ -140,7 +152,10 @@
                 >
                   <div class="hero-slide-overlay"></div>
                   <div class="hero-slide-body">
-                    <span class="hero-slide-eyebrow" data-longs="hero.s1.eye"></span>
+                    <span
+                      class="hero-slide-eyebrow"
+                      data-longs="hero.s1.eye"
+                    ></span>
                     <h1 class="hero-slide-title" data-longs="hero.s1.title">
                       Grow trees for<br />Your future
                     </h1>
@@ -197,7 +212,9 @@
                 >
                   <div class="hero-slide-overlay"></div>
                   <div class="hero-slide-body">
-                    <span class="hero-slide-eyebrow" data-longs="hero.s3.eye">Education For All</span>
+                    <span class="hero-slide-eyebrow" data-longs="hero.s3.eye"
+                      >Education For All</span
+                    >
                     <h1 class="hero-slide-title" data-longs="hero.s3.title">
                       Build a Future<br />Through the Power<br />of Education
                     </h1>
@@ -286,7 +303,9 @@
               </div>
               <div class="about-item-text">
                 <h4 data-longs="ab.item.vh">Vision</h4>
-                <p data-longs="ab.item.vp">“Protection of Nature for Better Human Life”</p>
+                <p data-longs="ab.item.vp">
+                  “Protection of Nature for Better Human Life”
+                </p>
               </div>
             </div>
           </div>
@@ -340,7 +359,8 @@
 
           <!-- Right: map frame 600×450 -->
           <div class="map-frame-wrap">
-            <div id="projectMap"></div>
+            <!-- <div id="projectMap"></div> -->
+            <div id="projectMap" data-eco-map="all"></div>
           </div>
         </div>
       </div>
@@ -355,11 +375,14 @@
           <span class="eyebrow">✤ Our Projects</span>
           <h2>Make a Difference Today</h2>
         </div>
-        <a href="#" class="btn btn-shine btn-outline"
+        <a href="/projects.html" class="btn btn-shine btn-outline"
           >View All projects <span class="arrow">→</span></a
         >
       </div>
-      <div class="carousel carousel--cards" id="causesSlider">
+      <div class="container">
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+      <!-- <div class="carousel carousel--cards" id="causesSlider">
         <div class="carousel-nav">
           <button class="carousel-prev" aria-label="Previous">
             <svg width="14" height="24" viewBox="0 0 16 28" fill="none">
@@ -383,12 +406,10 @@
           </button>
         </div>
         <div class="swiper">
-          <div class="swiper-wrapper">
-            <!-- Injected by JS -->
-          </div>
+          <div class="swiper-wrapper"></div>
         </div>
         <div class="carousel-pagination"></div>
-      </div>
+      </div> -->
     </section>
 
     <!-- ============ PARTNERS LOGO CAROUSEL ============
@@ -832,8 +853,12 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="carousel.js"></script>
     <script src="script.js"></script>
+    <script src="projects-data.js"></script>
+    <script src="projects.js"></script>
+    <script src="project-details.js"></script>
     <script src="map.js"></script>
     <script src="./dist/leaflet.js"></script>
     <script src="lang.js"></script>
+    <!-- <script src="projects.js"></script> -->
   </body>
 </html>

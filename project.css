@@ -1,0 +1,276 @@
+/* ===========================================================
+   project-detail.css
+   Reuses the palette from projects.css so the two pages read
+   as one site. If you centralize tokens later, move this
+   :root block into a shared tokens.css and import it in both.
+=========================================================== */
+:root {
+  --pine-950: #0f1c16;
+  --pine-900: #14251d;
+  --pine-800: #1b2e24;
+  --mint-100: #eaf3ea;
+  --mint-050: #f4f9f4;
+  --band: #d9edd8;         /* soft mint band for title / description, echoes wireframe's cyan bands */
+  --ink: #10201a;
+  --paper: #ffffff;
+  --stone-300: #c7cdc8;
+  --stone-400: #9aa69b;
+  --stone-500: #7d897e;
+  --leaf-500: #6f9b5e;
+  --amber-500: #e0a83f;
+  --focus-teal: #2f7a78;   /* accent border around the hero image */
+ 
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", system-ui, -apple-system, sans-serif;
+ 
+  --radius-card: 16px;
+  --radius-organic: 30px 16px 16px 16px;
+}
+ 
+* { box-sizing: border-box; }
+ 
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+}
+ 
+.detail-page {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+ 
+/* ===========================================================
+   Bands (title / description)
+=========================================================== */
+.detail-band {
+  background: var(--band);
+  padding: 22px 32px;
+}
+ 
+.detail-title-band {
+  margin-top: 24px;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+ 
+.detail-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 3vw, 30px);
+  margin: 0;
+  color: var(--pine-950);
+}
+ 
+/* ===========================================================
+   Hero image
+=========================================================== */
+.detail-image-wrap {
+  background: var(--pine-950);
+  border: 3px solid var(--focus-teal);
+  border-top: none;
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+}
+ 
+.detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+ 
+/* ===========================================================
+   Details / Location / Map row
+=========================================================== */
+.detail-info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 18px;
+  padding: 24px 32px 0;
+}
+ 
+@media (max-width: 760px) {
+  .detail-info-row {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+.info-panel {
+  background: var(--stone-400);
+  border-radius: var(--radius-card);
+  padding: 10px;
+}
+ 
+.info-panel--map {
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--stone-300);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  min-height: 220px;
+}
+ 
+.info-card {
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 16px 18px;
+  height: 100%;
+}
+ 
+.info-card__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+  margin: 0 0 10px;
+  color: var(--pine-950);
+}
+ 
+.info-card__line {
+  margin: 0 0 6px;
+  font-size: 13.5px;
+  color: var(--pine-800);
+  line-height: 1.5;
+}
+ 
+.info-card__line:last-child { margin-bottom: 0; }
+ 
+.info-card__label {
+  font-weight: 600;
+  color: var(--ink);
+}
+ 
+.map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+}
+ 
+/* Fallback shown if js/map.js hasn't rendered anything into #projectMap */
+.map-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 220px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--stone-500);
+  background: var(--mint-050);
+}
+ 
+/* ===========================================================
+   Description
+=========================================================== */
+.detail-description {
+  margin-top: 24px;
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+}
+ 
+.detail-description__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: var(--pine-950);
+}
+ 
+.detail-description__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--pine-800);
+  max-width: fit-content;
+  text-align: justify;
+}
+ 
+/* ===========================================================
+   More projects
+=========================================================== */
+.more-projects {
+  padding: 48px 32px 8px;
+}
+ 
+.more-projects__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  margin: 0 0 20px;
+  color: var(--pine-950);
+}
+ 
+.more-projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+}
+ 
+.mini-card {
+  display: block;
+  text-decoration: none;
+  background: var(--pine-950);
+  border-radius: var(--radius-organic);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.mini-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px -14px rgba(15, 28, 22, 0.4);
+}
+ 
+.mini-card__image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+ 
+.mini-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+ 
+.mini-card__body {
+  padding: 12px 14px 14px;
+}
+ 
+.mini-card__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--paper);
+  margin: 0 0 8px;
+ 
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+ 
+.mini-card__badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+ 
+.mini-card__badge--ongoing {
+  background: rgba(224, 168, 63, 0.16);
+  color: var(--amber-500);
+}
+ 
+.mini-card__badge--completed {
+  background: rgba(154, 166, 155, 0.22);
+  color: var(--stone-400);
+}
+ 
+/* ===========================================================
+   Footer
+=========================================================== */

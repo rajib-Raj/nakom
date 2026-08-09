@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link
+      rel="shortcut icon"
+      href="clients/nacom-logo-1.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="projects.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="logo">
+          <img src="clients/nacom-logo-1.png" alt="nacon-logo" />
+          <span class="logo-icon">Nature Conservation Management</span>
+        </a>
+        <nav class="main-nav" id="mainNav">
+          <ul>
+            <li>
+              <a href="/"><span data-longs="nav.home"></span></a>
+            </li>
+            <li>
+              <a href="/about.html"><span data-longs="nav.about"></span></a>
+            </li>
+            <li id="drop" class="active">
+              <button type="button">
+                <a href="/projects.html">
+                  <span data-longs="nav.project"> </span>
+                </a>
+
+                <span class="caret">▾</span>
+              </button>
+              <div class="dropdown-content">
+                <a href="#"><span data-longs="nav.drpo1"></span></a>
+                <a href="#"><span data-longs="nav.drpo2"></span></a>
+              </div>
+            </li>
+            <li id="drop">
+              <button>
+                <span data-longs="nav.resources"></span>
+                <span class="caret">▾</span>
+              </button>
+              <div class="dropdown-content">
+                <a href="#"><span data-longs="nav.drre1"></span></a>
+                <a href="#"><span data-longs="nav.drre2"></span></a>
+                <a href="#"><span data-longs="nav.drre3"></span></a>
+                <a href="#"><span data-longs="nav.drre4"></span></a>
+              </div>
+            </li>
+            <li id="drop">
+              <button type="button">
+                <span data-longs="nav.news"></span>
+                <span class="caret">▾</span>
+              </button>
+              <div class="dropdown-content">
+                <a href="#"><span data-longs="nav.drne1"></span></a>
+                <a href="#"><span data-longs="nav.drne2"></span></a>
+                <a href="#"><span data-longs="nav.drne3"></span></a>
+              </div>
+            </li>
+            <li>
+              <a href="#"
+                ><span data-longs="nav.gallery"></span
+                ><span class="caret">▾</span></a
+              >
+            </li>
+            <li>
+              <a href="/contact.html"><span data-longs="nav.contact"></span></a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-toggle-wrap">
+            <div class="switch">
+              <input
+                id="language-toggle"
+                class="check-toggle check-toggle-round-flat"
+                type="checkbox"
+              />
+              <label for="language-toggle"></label>
+              <span class="on">ENG</span>
+              <span class="off">বাংলা</span>
+            </div>
+          </div>
+          <!-- <a
+            href="https://maps.app.goo.gl/2M5dLceQySuphRLf6"
+            class="btn btn-shine"
+            style="padding: 12px 22px; font-size: 0.9rem"
+            target="_blank"
+            >Find Us <span class="arrow">→</span></a
+          > -->
+          <button class="icon-btn menu-btn" id="menuToggle" aria-label="Menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- section -->
+
+    <section class="projects-page">
+      <!-- LEFT: filter sidebar -->
+      <aside class="filters-sidebar" aria-label="Project filters">
+        <div class="filter-block">
+          <h3 class="filter-block__title">Projects by location</h3>
+          <ul
+            class="filter-list"
+            id="locationFilterList"
+            data-filter-type="location"
+          ></ul>
+        </div>
+
+        <div class="filter-block">
+          <h3 class="filter-block__title">Projects by year</h3>
+          <ul
+            class="filter-list"
+            id="yearFilterList"
+            data-filter-type="year"
+          ></ul>
+        </div>
+
+        <button type="button" class="clear-filters" id="clearFiltersBtn" hidden>
+          Clear filters
+        </button>
+      </aside>
+
+      <!-- RIGHT: status pills + cards -->
+      <main class="projects-main">
+        <div
+          class="status-filters"
+          role="tablist"
+          aria-label="Filter by project status"
+        >
+          <button
+            type="button"
+            class="status-btn is-active"
+            data-status="all"
+            role="tab"
+            aria-selected="true"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            class="status-btn"
+            data-status="ongoing"
+            role="tab"
+            aria-selected="false"
+          >
+            On Going Projects
+          </button>
+          <button
+            type="button"
+            class="status-btn"
+            data-status="completed"
+            role="tab"
+            aria-selected="false"
+          >
+            Completed Projects
+          </button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+
+        <p class="no-results" id="noResults" hidden>
+          No projects match the selected filters.
+        </p>
+      </main>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col footer-about">
+          <a href="/" class="logo footer-logo">
+            <img src="./clients/nacom-logo-1.png" alt="nacom-logo" />
+            <span class="logo-icon"></span>
+          </a>
+          <p>
+            We leverage real environmental data to tailor projects that maximize
+            ecology benefit in your region.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/nacom.bd/"
+              aria-label="Facebook"
+              target="_blank"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://x.com/NacomSocial"
+              aria-label="Twitter"
+              target="_blank"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/channel/UCJP64fe-TF5zyZSDLjrueRw"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/nacombd87"
+              aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Causes</a></li>
+            <li><a href="#">Volunteers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li>
+              <i class="fa-solid fa-location-dot" style="font-size: 20px"></i>
+              House: 20-21, Road: 12, Block: F, Niketan, Gulshan-1, Dhaka-1212,
+              Bangladesh
+            </li>
+            <li>
+              <i class="fa-regular fa-envelope" style="font-size: 20px"></i>
+              info@nacom.org
+            </li>
+            <li>
+              <i class="fa-solid fa-phone" style="font-size: 20px"></i>
+              +88-02-41080301
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>© 2026 VCL. All Rights Reserved.</p>
+          <ul class="footer-legal">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- <script src="carousel.js"></script> -->
+    <script src="script.js"></script>
+    <script src="map.js"></script>
+    <script src="./dist/leaflet.js"></script>
+    <script src="lang.js"></script>
+    <script src="projects-data.js"></script>
+    <script src="projects.js"></script>
+  </body>
+</html>
