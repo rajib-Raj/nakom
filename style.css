@@ -276,6 +276,16 @@ a {
   font-size: 0.7rem;
 }
 
+/* new for dropbutton */
+
+.main-nav li#drop.active > button {
+  color: #fff;
+  font-weight: 700;
+}
+.main-nav li#drop.active > button::after {
+  width: 100%;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -332,6 +342,13 @@ a {
   background: var(--green);
   border-radius: 2px;
   transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.main-nav li#drop > button a {
+  position: static; /* the inner <a> shouldn't manage its own underline */
+}
+.main-nav li#drop > button a::after {
+  display: none;
 }
 
 .main-nav li#drop:hover > button {
@@ -1021,29 +1038,57 @@ a {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .main-nav {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: var(--dark-bg-2);
-    padding: 100px 24px 24px;
-    transition: right 0.3s ease;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background: var(--dark-bg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 99;
   }
+
   .main-nav.open {
-    right: 0;
+    /* JS sets an explicit px value on open — see below */
   }
+
   .main-nav ul {
     flex-direction: column;
-    gap: 20px;
+    gap: 4px;
+    padding: 20px;
   }
+
+  .main-nav li#drop .dropdown-content {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    box-shadow: none;
+    display: none;
+    padding-left: 12px;
+  }
+  .main-nav li#drop.open .dropdown-content {
+    display: block;
+  }
+
   .menu-btn {
     display: flex;
   }
-  .header-actions .btn-shine {
+
+  /* lang toggle relocated inside the mobile nav */
+  .main-nav .lang-toggle-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 16px 20px 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 8px;
+  }
+
+  .header-actions .lang-toggle-wrap {
     display: none;
   }
 }

@@ -30,19 +30,27 @@
         </a>
         <nav class="main-nav" id="mainNav">
           <ul>
-            <li>
+            <li class="active">
               <a href="/"><span data-longs="nav.home"></span></a>
             </li>
-            <li>
-              <a href="/about.html"><span data-longs="nav.about"></span></a>
+            <li id="drop">
+              <button type="button">
+                <a href="/about.html">
+                  <span data-longs="nav.about"></span>
+                  <span class="caret">▾</span>
+                </a>
+              </button>
+              <div class="dropdown-content">
+                <a href="#"><span data-longs="nav.team"></span></a>
+                <a href="#"><span data-longs="nav.partners"></span></a>
+              </div>
             </li>
-            <li id="drop" class="active">
+            <li id="drop">
               <button type="button">
                 <a href="/projects.html">
-                  <span data-longs="nav.project"> </span>
+                  <span data-longs="nav.project"></span>
+                  <span class="caret">▾</span>
                 </a>
-
-                <span class="caret">▾</span>
               </button>
               <div class="dropdown-content">
                 <a href="#"><span data-longs="nav.drpo1"></span></a>
@@ -96,13 +104,6 @@
               <span class="off">বাংলা</span>
             </div>
           </div>
-          <!-- <a
-            href="https://maps.app.goo.gl/2M5dLceQySuphRLf6"
-            class="btn btn-shine"
-            style="padding: 12px 22px; font-size: 0.9rem"
-            target="_blank"
-            >Find Us <span class="arrow">→</span></a
-          > -->
           <button class="icon-btn menu-btn" id="menuToggle" aria-label="Menu">
             ☰
           </button>

@@ -65,20 +65,62 @@ document.addEventListener('DOMContentLoaded', () => {
     type: 'logos',
     speed: 3500,
   });
-
   // ── Mobile menu toggle ──────────────────────────────────────
-  const menuToggle = document.getElementById('menuToggle');
-  const mainNav    = document.getElementById('mainNav');
-  menuToggle?.addEventListener('click', () => mainNav.classList.toggle('open'));
-  document.addEventListener('click', (e) => {
-    if (mainNav?.classList.contains('open') &&
-        !mainNav.contains(e.target) &&
-        !menuToggle.contains(e.target)) {
-      mainNav.classList.remove('open');
+});
+
+const mainNav = document.getElementById('mainNav');
+const menuToggle = document.getElementById('menuToggle');
+const langToggleWrap = document.querySelector('.lang-toggle-wrap');
+const headerActions = document.querySelector('.header-actions');
+const navUl = mainNav.querySelector('ul');
+
+const mq = window.matchMedia('(max-width: 900px)');
+
+function placeLangToggle(e) {
+  if (e.matches) {
+    mainNav.appendChild(langToggleWrap); // move into mobile nav
+  } else {
+    headerActions.insertBefore(langToggleWrap, menuToggle); // move back to header
+    mainNav.classList.remove('open');
+    mainNav.style.maxHeight = '';
+  }
+}
+placeLangToggle(mq); // run once on load
+mq.addEventListener('change', placeLangToggle);
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  if (isOpen) {
+    // measure real content height and animate to it
+    mainNav.style.maxHeight = mainNav.scrollHeight + 'px';
+  } else {
+    mainNav.style.maxHeight = '0px';
+  }
+});
+
+// re-measure if a dropdown inside the mobile menu opens/closes content height
+mainNav.querySelectorAll('li#drop > button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (!mq.matches) return; // desktop uses hover, ignore
+    btn.parentElement.classList.toggle('open');
+    if (mainNav.classList.contains('open')) {
+      mainNav.style.maxHeight = mainNav.scrollHeight + 'px';
     }
   });
-
 });
+
+// new for drop active
+
+const currentPath = window.location.pathname;
+
+document.querySelectorAll('.main-nav > ul > li').forEach(li => {
+  li.classList.remove('active');
+  const link = li.querySelector('a[href]');
+  if (link && link.getAttribute('href') === currentPath) {
+    li.classList.add('active');
+  }
+});
+
 // number animation
 const counters = document.querySelectorAll(".numba");
 

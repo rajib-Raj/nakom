@@ -9,6 +9,10 @@ const translat = {
     "nav.contact": "Contact",
 
     // dropdowns
+    "nav.team": "Team",
+    "nav.partners": "Partners",
+
+
     "nav.drpo1": "On Going Projects",
     "nav.drpo2": "Completed Projects",
 

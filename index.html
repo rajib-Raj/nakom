@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./dist/leaflet.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="carousel.css" />
-    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="projects.css" />
   </head>
   <body>
     <!-- ============ HEADER ============ -->
@@ -35,8 +35,17 @@
             <li class="active">
               <a href="/"><span data-longs="nav.home"></span></a>
             </li>
-            <li>
-              <a href="/about.html"><span data-longs="nav.about"></span></a>
+            <li id="drop">
+              <button type="button">
+                <a href="/about.html">
+                  <span data-longs="nav.about"></span>
+                  <span class="caret">▾</span>
+                </a>
+              </button>
+              <div class="dropdown-content">
+                <a href="#"><span data-longs="nav.team"></span></a>
+                <a href="#"><span data-longs="nav.partners"></span></a>
+              </div>
             </li>
             <li id="drop">
               <button type="button">
@@ -97,13 +106,6 @@
               <span class="off">বাংলা</span>
             </div>
           </div>
-          <!-- <a
-            href="https://maps.app.goo.gl/2M5dLceQySuphRLf6"
-            class="btn btn-shine"
-            style="padding: 12px 22px; font-size: 0.9rem"
-            target="_blank"
-            >Find Us <span class="arrow">→</span></a
-          > -->
           <button class="icon-btn menu-btn" id="menuToggle" aria-label="Menu">
             ☰
           </button>
@@ -380,8 +382,8 @@
         >
       </div>
       <div class="container">
-    <div class="projects-grid" id="projectsGrid"></div>
-  </div>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
       <!-- <div class="carousel carousel--cards" id="causesSlider">
         <div class="carousel-nav">
           <button class="carousel-prev" aria-label="Previous">
