@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nacom</title>
+    <title>Profile</title>
     <link
       rel="shortcut icon"
       href="clients/nacom-logo-1.png"
@@ -17,9 +17,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="./dist/leaflet.css" />
+
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="carousel.css" />
   </head>
   <body>
     <header class="site-header">
@@ -30,7 +29,7 @@
         </a>
         <nav class="main-nav" id="mainNav">
           <ul>
-            <li >
+            <li>
               <a href="/"><span data-longs="nav.home"></span></a>
             </li>
             <li id="drop" class="active">
@@ -41,7 +40,7 @@
                 </a>
               </button>
               <div class="dropdown-content">
-                <a href="#"><span data-longs="nav.team"></span></a>
+                <a href="/team.html"><span data-longs="nav.team"></span></a>
                 <a href="#"><span data-longs="nav.partners"></span></a>
               </div>
             </li>
@@ -111,105 +110,110 @@
       </div>
     </header>
 
-    <section>
-      <div class="profile-container" id="profileContainer">
-        <!-- row 1 -->
-        <div class="profile-card">
-          <img src="clients/cher.jpg" alt="image1" class="profile-icon" />
-          <div class="profile-name">Prof. Dr. Md. Abdur Rob Mollah</div>
-          <div class="profile-position">Chairman</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/execdir.jpg" alt="image2" class="profile-icon" />
-          <div class="profile-name">S.M. Munjurul Hannan Khan</div>
-          <div class="profile-position">Executive Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/director.png" alt="image3" class="profile-icon" />
-          <div class="profile-name">Rashiduzzaman Ahmed</div>
-          <div class="profile-position">Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <!-- row2 -->
-        <div class="profile-card">
-          <img src="clients/cher.jpg" alt="image1" class="profile-icon" />
-          <div class="profile-name">Prof. Dr. Md. Abdur Rob Mollah</div>
-          <div class="profile-position">Chairman</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/execdir.jpg" alt="image2" class="profile-icon" />
-          <div class="profile-name">S.M. Munjurul Hannan Khan</div>
-          <div class="profile-position">Executive Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/director.png" alt="image3" class="profile-icon" />
-          <div class="profile-name">Rashiduzzaman Ahmed</div>
-          <div class="profile-position">Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <!-- row3 -->
-        <div class="profile-card">
-          <img src="clients/cher.jpg" alt="image1" class="profile-icon" />
-          <div class="profile-name">Prof. Dr. Md. Abdur Rob Mollah</div>
-          <div class="profile-position">Chairman</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/execdir.jpg" alt="image2" class="profile-icon" />
-          <div class="profile-name">S.M. Munjurul Hannan Khan</div>
-          <div class="profile-position">Executive Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/director.png" alt="image3" class="profile-icon" />
-          <div class="profile-name">Rashiduzzaman Ahmed</div>
-          <div class="profile-position">Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/cher.jpg" alt="image1" class="profile-icon" />
-          <div class="profile-name">Prof. Dr. Md. Abdur Rob Mollah</div>
-          <div class="profile-position">Chairman</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/execdir.jpg" alt="image2" class="profile-icon" />
-          <div class="profile-name">S.M. Munjurul Hannan Khan</div>
-          <div class="profile-position">Executive Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/director.png" alt="image3" class="profile-icon" />
-          <div class="profile-name">Rashiduzzaman Ahmed</div>
-          <div class="profile-position">Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/cher.jpg" alt="image1" class="profile-icon" />
-          <div class="profile-name">Prof. Dr. Md. Abdur Rob Mollah</div>
-          <div class="profile-position">Chairman</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/execdir.jpg" alt="image2" class="profile-icon" />
-          <div class="profile-name">S.M. Munjurul Hannan Khan</div>
-          <div class="profile-position">Executive Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-        <div class="profile-card">
-          <img src="clients/director.png" alt="image3" class="profile-icon" />
-          <div class="profile-name">Rashiduzzaman Ahmed</div>
-          <div class="profile-position">Director</div>
-          <a href="#" class="button">Read More</a>
-        </div>
-      </div>
-      <div class="pagination" id="pagination"></div>
-    </section>
+    <!-- section -->
 
+    
+<div class="parent containter">
+  <div class="div1">
+    <div class="image-box">
+      <img src="clients/48.jpeg" alt="bird" />
+    </div>
+  </div>
+  <div class="div2">
+    <div class="green-panel">
+      <h2>Background</h2>
+      <p>
+        Nature Conservation Management (NACOM) is the pioneer,
+        non-government, pro-environment organization in Bangladesh, founded
+        in 1987. Its mandates relate to natural resource management (NRM),
+        climate change and resilience, biodiversity conservation, poverty
+        alleviation, environmental and social assessment, capacity building,
+        community mobilization for empowerment, and sustainable development
+        through research, information exchange, and undertaking project and
+        programs implementation. NACOM has highly experienced and
+        multidisciplinary professionals to achieve its mandates.
+      </p>
+    </div>
+  </div>
+  <div class="div3">
+    <div class="txt-box">
+      <img src="clients/target.png" alt="">
+      <h3>Mission</h3>
+      <p>
+        NACOM's mission is to engage in activities to ensure the protection
+        of nature while empowering local communities
+      </p>
+    </div>
+  </div>
+  <div class="div4">
+    <div class="txt-box">
+      <img src="clients/vision.png" alt="">
+      <h3>Vision</h3>
+      <p>"Protection of Nature for Better Human Life"</p>
+    </div>
+  </div>
+  <div class="div5">
+    <div class="image-box">
+      <img src="clients/8638.jpeg" alt="bird" />
+    </div>
+  </div>
+  <div class="div6">
+    <div class="objectives-image">
+      <img src="clients/birds.jpg" alt="birds" />
+    </div>
+  </div>
+  <div class="div7">
+    <div class="list-text">
+      <h2>Objectives:</h2>
+      <ul class="unon">
+        <li class="txtli">
+          <span class="hedtex">Advance Sustainable Resource Management:</span>
+          Engage diverse stakeholders to promote responsible natural
+          resource use, biodiversity and wildlife conservation, ecosystem
+          restoration, collaborative forest stewardship, and climate action.
+        </li>
+        <li class="txtli">
+          <span class="hedtex">Promote Applied Research and Policy Development:</span>
+          Expand knowledge to design effective strategies, plans, and
+          policies for resource management, forest and wetland governance,
+          ecosystem conservation, climate resilience, and the
+          environment–development nexus.
+        </li>
+        <li class="txtli">
+          <span class="hedtex">Facilitate Knowledge Sharing and Innovation:</span>
+          Strengthen understanding of the climate crisis, conservation
+          priorities, ecological processes, pollution control, and devise
+          sustainable management tools through action-oriented research and
+          exchange.
+        </li>
+        <li class="txtli">
+          <span class="hedtex">Implement Responsible and Inclusive Solutions:</span>
+          Support approaches that ease pressure on natural resources, foster
+          sustainable economic growth, urban resilience, diversified
+          livelihoods, and innovative climate adaptation and mitigation,
+          while ensuring sound governance at all levels.
+        </li>
+        <li class="txtli">
+          <span class="hedtex">Promote Social Inclusion, Equity, and Justice:</span>
+          Empower vulnerable groups—including women, youth, and ethnic
+          communities—to actively engage in conservation, resource
+          management, environmental integrity, health, education, skills
+          development, livelihood improvement, and protection of human
+          rights.
+        </li>
+        <li class="txtli">
+          <span class="hedtex">Raise Awareness and Build Capacity:</span>
+          Equip policymakers, communities, youth, women, ethnic minorities,
+          persons with disabilities, and the private sector to act on
+          natural resource management, climate change, and sustainable
+          development, ensuring environmental and social safeguards.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <!-- footer -->
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-col footer-about">
@@ -287,11 +291,8 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="carousel.js"></script>
     <script src="script.js"></script>
-    <script src="map.js"></script>
-    <script src="./dist/leaflet.js"></script>
+
     <script src="lang.js"></script>
   </body>
 </html>

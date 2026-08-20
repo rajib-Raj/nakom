@@ -14,8 +14,16 @@
  * USAGE
  * -----
  * 1) Overview map with every project pinned — auto-initializes,
- *    no extra JS needed:
+ *    no extra JS needed. Popups are ON by default (home page use):
  *      <div data-eco-map="all" style="height:480px"></div>
+ *
+ *    To show markers only, with no popup card (e.g. a mini "all
+ *    projects" map embedded inside project-detail.html), add
+ *    data-eco-map-popup="false":
+ *      <div data-eco-map="all" data-eco-map-popup="false" style="height:300px"></div>
+ *
+ *    Same toggle works if you call it manually:
+ *      ProjectMap.renderAll(el, { showPopup: false });
  *
  * 2) Single-project map (this is what project-detail.js calls):
  *      ProjectMap.render(containerEl, { lat, lng, name, location, status })
@@ -105,12 +113,23 @@ function guardScrollZoom(mapEl, map) {
  * Renders every project as a pin on one map — the overview / "all
  * projects" map. Pulls from projectsData by default; pass a custom
  * `data` array via options to override.
+ *
+ * options.showPopup (default true) — when false, markers render
+ * with no click/hover popup card at all (used on project-detail.html
+ * so the mini map doesn't compete with the page's own project info).
  */
 function renderAll(container, options = {}) {
   const mapEl = typeof container === 'string' ? document.getElementById(container) : container;
   if (!mapEl || typeof L === 'undefined') return null;
  
   const data = options.data || (typeof projectsData !== 'undefined' ? projectsData : []);
+ 
+  // Falls back to the element's data-eco-map-popup attribute so the
+  // auto-init pass (below) can opt individual maps out via markup
+  // alone, with no JS call needed.
+  const showPopup = options.showPopup !== undefined
+    ? options.showPopup
+    : mapEl.dataset.ecoMapPopup !== 'false';
  
   const map = L.map(mapEl, {
     center: options.center || [23.6850, 90.3563],
@@ -128,8 +147,12 @@ function renderAll(container, options = {}) {
     if (coords[0] == null || coords[1] == null) return;
  
     const marker = L.marker(coords, { icon: createMarkerIcon(p.status) });
-    marker.bindPopup(buildPopup(p), { maxWidth: 280, className: 'eco-popup-wrap' });
-    marker.on('mouseover', function () { this.openPopup(); });
+ 
+    if (showPopup) {
+      marker.bindPopup(buildPopup(p), { maxWidth: 280, className: 'eco-popup-wrap' });
+      marker.on('mouseover', function () { this.openPopup(); });
+    }
+ 
     marker.addTo(map);
   });
  
@@ -166,7 +189,7 @@ function renderSingle(container, point = {}) {
     icon: createMarkerIcon(point.status || 'ongoing'),
   }).addTo(map);
  
-  if (point.name) {
+  if (point.showPopup && point.name) {
     marker
       .bindPopup(`
         <div class="eco-popup eco-popup--compact">

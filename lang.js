@@ -1,7 +1,7 @@
 const translat = {
   en: {
     "nav.home": "Home",
-    "nav.about": "About",
+    "nav.about": "About Us",
     "nav.project": "Projects",
     "nav.resources": "Resources",
     "nav.news": "News and Events",

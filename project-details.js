@@ -35,9 +35,9 @@ function renderProject(project) {
   document.getElementById('detailsBudget').textContent = project.budget;
  
   document.getElementById('country').textContent = project.country;
-  document.getElementById('organization').textContent = project.organization;
-  document.getElementById('locationBudget').textContent = project.budget;
- 
+  document.getElementById('organization').textContent = project.imorganization;
+  document.getElementById('donor').textContent = project.donorganization;
+
   document.getElementById('projectDescription').textContent = project.description;
 }
  
@@ -55,6 +55,7 @@ function renderMap(project) {
     name: project.title,
     location: project.location,
     country: project.country,
+    // showPopup: false,
   };
  
   if (typeof window.initProjectMap === 'function') {
