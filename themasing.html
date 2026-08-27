@@ -1,9 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PUBLICATONS</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
       rel="shortcut icon"
       href="clients/nacom-logo-1.png"
@@ -18,11 +17,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="publicaton.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="themasing.css">
+</head>
+<body>
     <!-- head -->
-
     <header class="site-header">
       <div class="container header-inner">
         <a href="/" class="logo">
@@ -31,10 +29,10 @@
         </a>
         <nav class="main-nav" id="mainNav">
           <ul>
-            <li>
+            <li class="active">
               <a href="/"><span data-longs="nav.home"></span></a>
             </li>
-            <li id="drop" class="active">
+            <li id="drop">
               <button type="button">
                 <a href="/about.html">
                   <span data-longs="nav.about"></span>
@@ -42,7 +40,7 @@
                 </a>
               </button>
               <div class="dropdown-content">
-                <a href="#"><span data-longs="nav.team"></span></a>
+                <a href="/team.html"><span data-longs="nav.team"></span></a>
                 <a href="#"><span data-longs="nav.partners"></span></a>
               </div>
             </li>
@@ -64,10 +62,10 @@
                 <span class="caret">▾</span>
               </button>
               <div class="dropdown-content">
-                <a href="#"><span data-longs="nav.drre1"></span></a>
-                <a href="#"><span data-longs="nav.drre2"></span></a>
+                <a href="/publication.html"><span data-longs="nav.drre1"></span></a>
+                <a href="/document.html"><span data-longs="nav.drre2"></span></a>
                 <a href="#"><span data-longs="nav.drre3"></span></a>
-                <a href="#"><span data-longs="nav.drre4"></span></a>
+                <a href="/iec.html"><span data-longs="nav.drre4"></span></a>
               </div>
             </li>
             <li id="drop">
@@ -111,59 +109,67 @@
         </div>
       </div>
     </header>
+    <!-- section -->
 
-    <main class="pub-page">
-      <h1 class="pub-page__title">Publications</h1>
+    <!-- ================================================
+     Thematic Area Section
+     Drop this <section> into any page. Requires
+     thematic-area.css (and your shared design-system
+     variables — pine/mint/Fraunces — to already be
+     loaded on the page).
+================================================= -->
+ 
+<section class="thematic-area">
+ 
+  <!-- Title bar -->
+  <header class="thematic-area__header">
+    <h2 class="thematic-area__title" data-longs="why.da1"></h2>
+  </header>
+ 
+  <!-- Main image -->
+  <div class="thematic-area__hero">
+    <img
+      class="thematic-area__hero-img"
+      src="clients/8638.jpeg"
+      alt=""
+      data-i18n-alt="thematic.heroAlt"
+    />
+  </div>
+ 
+  <!-- Description -->
+  <div class="thematic-area__description">
+    <p data-i18n="thematic.description">
+      Nature Conservation Management (NACOM) has extensive experience in pollution control, focusing on indoor and outdoor air pollution including water and soil pollution in Bangladesh.
 
-      <div class="pub-grid">
-        <!-- ===== CARD 1 ===== -->
-        <div class="pub-card">
-          <img
-            class="pub-card__img"
-            src="clients/CITES.jpg"
-            alt="Forest Conservation Report 2025 cover"
-          />
-          <h3 class="pub-card__title">Forest Conservation Report 2025</h3>
-          <a class="pub-card__btn" href="convention.html">Read More</a>
-        </div>
+NACOM works with diverse stakeholders, including national and international experts, to develop effective air pollution control solutions. Projects like “Cleaner Air, Healthier Dhaka” involve continuous monitoring of key pollutants like PM2.5 and NO2. This data is then used to analyze trends, identify Clean Air Zones (CAZs), conduct policy assessments to inform better regulations, foster integrated air quality actions and actively raise public awareness about air quality risks.
+The Strengthening Knowledge and Actions for Air Quality Improvement project, funded by ADB, covering multiple cities with activities like air quality monitoring (using AQMesh Pods), emission inventories, source apportionment, policy evaluation, capacity building for officials and brick kiln manufacturers, public awareness, and drafting a Clean Air Action Plan.
+Indoor air pollution mitigation through promotion of improved cook stoves, retained heat cookers, and biomass briquettes, reducing health impacts on women and children. NACOM has directly mitigated pollution by installing Clean Cook Stoves through 5 projects in the coastal region and various other technical studies, stakeholder consultations, and community mobilization efforts to address air pollution comprehensively.
+To protect the environment and enhance coastal resilience, NACOM has addressed water and soil pollution by conducting beach cleanup activities in coastal areas.
+    </p>
+  </div>
+ 
+  <!-- Image gallery -->
+  <div class="thematic-area__gallery-wrap">
+    <h3 class="thematic-area__gallery-label" data-i18n="thematic.galleryLabel">
+      Image gallery
+    </h3>
+ 
+    <div class="thematic-area__gallery">
+      <figure class="thematic-area__gallery-item">
+        <img src="clients/Project1.jpg" alt="" data-i18n-alt="thematic.gallery1Alt" />
+      </figure>
+      <figure class="thematic-area__gallery-item">
+        <img src="clients/project2.jpg" alt="" data-i18n-alt="thematic.gallery2Alt" />
+      </figure>
+      <figure class="thematic-area__gallery-item">
+        <img src="clients/project3.jpeg" alt="" data-i18n-alt="thematic.gallery3Alt" />
+      </figure>
+    </div>
+  </div>
+ 
+</section>
 
-        <!-- ===== CARD 2 ===== -->
-        <div class="pub-card">
-          <img
-            class="pub-card__img"
-            src="clients/Physical-Infrastructures.jpg"
-            alt="Wetland Biodiversity Survey 2024 cover"
-          />
-          <h3 class="pub-card__title">Wetland Biodiversity Survey 2024</h3>
-          <a
-            class="pub-card__btn"
-            href="publication-wetland-biodiversity-survey-2024.html"
-            >Read More</a
-          >
-        </div>
-
-        <!-- ===== CARD 3 ===== -->
-        <div class="pub-card">
-          <img
-            class="pub-card__img"
-            src="clients/hower.jpg"
-            alt="Community Outreach Handbook cover"
-          />
-          <h3 class="pub-card__title">Community Outreach Handbook</h3>
-          <a
-            class="pub-card__btn"
-            href="publication-community-outreach-handbook.html"
-            >Read More</a
-          >
-        </div>
-
-        <!-- To add a new publication: copy one <article class="pub-card">...</article>
-           block above, update the image, title, and link, then duplicate
-           publication-single.html (renamed to match the link) for its page. -->
-      </div>
-    </main>
-
-    <!-- footer -->
+<!-- footer -->
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-col footer-about">
@@ -240,7 +246,8 @@
         </div>
       </div>
     </footer>
+
     <script src="script.js"></script>
     <script src="lang.js"></script>
-  </body>
+</body>
 </html>

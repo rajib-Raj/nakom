@@ -1,0 +1,135 @@
+/* ================================================
+   Thematic Area Section
+   Uses the shared design tokens (falls back to the
+   NACOM palette if the variables aren't defined
+   globally yet).
+================================================= */
+ 
+.thematic-area {
+  --ta-pine: var(--pine, #123832);
+  --ta-mint: var(--mint, #8fd9c4);
+  --ta-mint-tint: #eaf7f1;      /* light wash of mint for the header */
+  --ta-mint-tint-soft: #f2faf6; /* even lighter wash for the hero panel */
+  --ta-sand: #e6dcc0;           /* warm accent for the description bar */
+  --ta-ink: var(--pine, #123832);
+  --ta-radius: 14px;
+  --ta-gap: 1.5rem;
+ 
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--ta-ink);
+}
+ 
+/* ---------- Title bar ---------- */
+ 
+.thematic-area__header {
+  background: var(--ta-mint-tint);
+  border-radius: var(--ta-radius) var(--ta-radius) 0 0;
+  padding: 1.5rem 2rem;
+}
+ 
+.thematic-area__title {
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2rem);
+  margin: 0;
+  color: var(--ta-pine);
+}
+ 
+/* ---------- Hero image ---------- */
+ 
+.thematic-area__hero {
+  background: var(--ta-mint-tint-soft);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+ 
+.thematic-area__hero-img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+}
+ 
+/* ---------- Description bar ---------- */
+ 
+.thematic-area__description {
+  background: var(--ta-sand);
+  padding: 1.25rem 2rem;
+}
+ 
+.thematic-area__description p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+ 
+/* ---------- Gallery ---------- */
+ 
+.thematic-area__gallery-wrap {
+  padding: 1.75rem 0 0.5rem;
+}
+ 
+.thematic-area__gallery-label {
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0 0 1rem;
+  color: var(--ta-pine);
+}
+ 
+.thematic-area__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ta-gap);
+  margin-bottom: 20px;
+}
+ 
+.thematic-area__gallery-item {
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #d9d9d9; /* placeholder tone until real images are wired in */
+}
+ 
+.thematic-area__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+ 
+/* ---------- Responsive ---------- */
+ 
+@media (max-width: 700px) {
+  .thematic-area__header {
+    padding: 1.25rem 1.25rem;
+  }
+ 
+  .thematic-area__hero,
+  .thematic-area__hero-img {
+    min-height: 220px;
+  }
+ 
+  .thematic-area__description {
+    padding: 1rem 1.25rem;
+  }
+ 
+  .thematic-area__gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+ 
+@media (max-width: 420px) {
+  .thematic-area__gallery {
+    grid-template-columns: 1fr;
+  }
+}

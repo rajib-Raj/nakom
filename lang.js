@@ -11,7 +11,7 @@ const translat = {
     // dropdowns
     "nav.team": "Team",
     "nav.partners": "Partners",
-
+    "nav.themat": "Thematic Area",
 
     "nav.drpo1": "On Going Projects",
     "nav.drpo2": "Completed Projects",
@@ -79,6 +79,11 @@ const translat = {
     "nav.contact": "যোগাযোগ",
 
     // dropdowns
+
+    "nav.team": "কর্মিদল",
+    "nav.partners": "অংশীদাররা",
+    "nav.themat": "বিষয়ভিত্তিক ক্ষেত্র",
+
     "nav.drpo1": "চলমান প্রকল্পসমূহ",
     "nav.drpo2": "সম্পন্ন প্রকল্পসমূহ",
 
