@@ -1,11 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="publicaton.css" />
-    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
     <link
       rel="shortcut icon"
       href="clients/nacom-logo-1.png"
@@ -19,9 +17,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-  </head>
-  <body>
-
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="publicaton.css">
+</head>
+<body>
     <!-- head -->
      <header class="site-header">
       <div class="container header-inner">
@@ -113,31 +112,63 @@
       </div>
     </header>
 
-    
-  <main class="pub-single">
- 
-    <div class="pub-single__grid">
- 
-      <img class="pub-single__img" src="clients/CITES.jpg" alt="Forest Conservation Report 2025 cover" />
- 
-      <div class="pub-single__info">
-        <h1 class="pub-single__title">Convention on International Trade in Endangered Species (CITES)</h1>
-        <p class="pub-single__summary">
-          A comprehensive review of NACOM's forest conservation initiatives across
-          the Chittagong Hill Tracts, including reforestation outcomes and
-          community engagement data.
-        </p>
-        <a class="pub-card__btn" href="clients/pdf/Convention-on-International-Trade-in-Endangered-Species-CITES-A-Handbook-for-Bangladesh.pdf" download>Download PDF</a>
+    <!-- section -->
+
+    <main class="pub-page">
+      <h1 class="pub-page__title">News</h1>
+
+      <div class="pub-grid">
+        <!-- ===== CARD 1 ===== -->
+        <div class="pub-card">
+          <img
+            class="pub-card__img"
+            src="clients/1.png"
+            alt="Forest Conservation Report 2025 cover"
+          />
+          <h3 class="pub-card__title">Orientation meeting with teachers, parents, youth, and community leaders!</h3>
+          <a class="pub-card__btn" href="/themasing.html">Read More</a>
+        </div>
+
+        <!-- ===== CARD 2 ===== -->
+        <div class="pub-card">
+          <img
+            class="pub-card__img"
+            src="clients/2.jpeg"
+            alt="Wetland Biodiversity Survey 2024 cover"
+          />
+          <h3 class="pub-card__title">A meaningful step forward for ecosystem conservation</h3>
+          <a
+            class="pub-card__btn"
+            href="publication-wetland-biodiversity-survey-2024.html"
+            >Read More</a
+          >
+        </div>
+
+        <!-- ===== CARD 3 ===== -->
+        <div class="pub-card">
+          <img
+            class="pub-card__img"
+            src="clients/3.png"
+            alt="Community Outreach Handbook cover"
+          />
+          <h3 class="pub-card__title">Cities Learning from Cities: How Dhaka and Kampala Are Tackling Air Pollution</h3>
+          <a
+            class="pub-card__btn"
+            href="publication-community-outreach-handbook.html"
+            >Read More</a
+          >
+        </div>
+        <!-- 4 -->
+        
+
+
+        
+        <!-- To add a new publication: copy one <article class="pub-card">...</article>
+           block above, update the image, title, and link, then duplicate
+           publication-single.html (renamed to match the link) for its page. -->
       </div>
- 
-      <div class="pub-single__viewer">
-        <iframe src="clients/pdf/Convention-on-International-Trade-in-Endangered-Species-CITES-A-Handbook-for-Bangladesh.pdf" title="Forest Conservation Report 2025"></iframe>
-      </div>
- 
-    </div>
- 
-  </main>
- 
+    </main>
+
     <!-- footer -->
      <footer class="site-footer">
       <div class="container footer-grid">
@@ -216,7 +247,7 @@
       </div>
     </footer>
 
-    <script src="lang.js"></script>
     <script src="script.js"></script>
-  </body>
+    <script src="lang.js"></script>
+</body>
 </html>
