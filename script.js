@@ -53,12 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 2. Causes cards — dynamic data, autoplay, hover pause
-  new Carousel('#causesSlider', {
-    type: 'cards',
-    data: causesData,
-    renderFn: renderCauseCard,
-    delay: 2800,
-  });
+  
 
   // 3. Logo strip — infinite, no controls, constant scroll
   new Carousel('#logoSlider', {

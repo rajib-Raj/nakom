@@ -53,6 +53,10 @@ const translat = {
     "ab.item.vh": "Vision",
     "ab.item.vp": "Protection of Nature for Better Human Life",
 
+    // map
+
+    "map.eye": "✤ Our Reach",
+
     // Thematic Area
     "why.eyeh": "✤ Thematic Area",
     "why.da1": "Pollution Control",

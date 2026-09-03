@@ -99,7 +99,7 @@ body {
 .info-panel {
   background: var(--stone-400);
   border-radius: var(--radius-card);
-  padding: 10px;
+  padding: 5px;
 }
  
 .info-panel--map {
@@ -121,7 +121,7 @@ body {
 .info-card__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 17px;
+  font-size: 20px;
   margin: 0 0 10px;
   color: var(--pine-950);
 }
@@ -131,6 +131,7 @@ body {
   font-size: 13.5px;
   color: var(--pine-800);
   line-height: 1.5;
+  display: grid;
 }
  
 .info-card__line:last-child { margin-bottom: 0; }
@@ -138,6 +139,7 @@ body {
 .info-card__label {
   font-weight: 600;
   color: var(--ink);
+  font-size: 16px;
 }
  
 .map-container {

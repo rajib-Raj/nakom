@@ -196,7 +196,7 @@ a {
   background: var(--dark-bg);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1999;
 }
 .header-inner {
   display: flex;
@@ -667,11 +667,12 @@ a {
   border: 1px solid var(--green);
   color: var(--green);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   padding: 6px 16px;
   border-radius: 50px;
   margin-bottom: 20px;
 }
+
 .about-content h4 {
   font-size: 1.4rem;
   font-weight: 800;
@@ -2130,6 +2131,12 @@ html[lang="bn"] body {
     object-fit: cover;
     display: block;
     border-radius: 25px;
+  }
+
+  .image-box img:hover{
+    scale: 1.1;
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
   }
  
   /* ===================== MISSION / VISION TEXT ===================== */
